@@ -168,7 +168,9 @@ class _BalloonShape extends ShapeBorder {
     bottomLeftRadius = /* (left == 0 || bottom == 0) ? 0.0 : */ borderRadius;
     bottomRightRadius = /* (right == 0 || bottom == 0) ? 0.0 : */ borderRadius;
 
-    Offset targetCenter = this.targetCenter ?? rect.center;
+//     Offset targetCenter = this.targetCenter ?? rect.center;
+     // this is for my custom changes & use
+    Offset targetCenter = rect.bottomLeft.translate(60,rect.bottomLeft.dy);
     if (tooltipDirection == TooltipDirection.right) {
       targetCenter = rect.centerLeft.translate(-arrowLength, 0);
     } else if (tooltipDirection == TooltipDirection.left) {
