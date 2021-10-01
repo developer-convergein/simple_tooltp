@@ -19,6 +19,7 @@ class _Ballon extends StatefulWidget {
   final List<BoxShadow> shadows;
   final GestureTapCallback? onTap;
   final Function(_BallonSize) onSizeChange;
+  final bool customLeftAlign;
 
   const _Ballon({
     Key? key,
@@ -38,6 +39,7 @@ class _Ballon extends StatefulWidget {
     required this.ballonPadding,
     required this.backgroundColor,
     required this.shadows,
+    this.customLeftAlign= false,
     this.onTap,
     required this.onSizeChange,
   }) : super(key: key);
@@ -92,6 +94,7 @@ class __BallonState extends State<_Ballon> {
             // right,
             // bottom,
             widget.arrowLength,
+            widget.customLeftAlign,
           ),
         ),
         padding: widget.ballonPadding,
@@ -110,6 +113,8 @@ class _BalloonShape extends ShapeBorder {
   final double borderWidth;
   final TooltipDirection tooltipDirection;
   final double arrowLength;
+    final bool customLeftAlign;
+
   // final double left, top, right, bottom;
 
   _BalloonShape(
@@ -121,6 +126,7 @@ class _BalloonShape extends ShapeBorder {
     this.borderColor,
     this.borderWidth,
     this.arrowLength,
+    this.customLeftAlign,
     // this.left,
     // this.top,
     // this.right,
