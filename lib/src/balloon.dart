@@ -178,12 +178,11 @@ class _BalloonShape extends ShapeBorder {
 //     Offset targetCenter = this.targetCenter ?? rect.center;
      // this is for my custom changes & use
     
+    
+    Offset targetCenter = this.targetCenter ?? rect.center;
+
     if(customLeftAlign){
-          Offset targetCenter = rect.bottomLeft.translate(60,rect.bottomLeft.dy);
-
-    }else{
-           Offset targetCenter = this.targetCenter ?? rect.center;
-
+       targetCenter = rect.bottomLeft.translate(60,rect.bottomLeft.dy);
     }
     if (tooltipDirection == TooltipDirection.right) {
       targetCenter = rect.centerLeft.translate(-arrowLength, 0);
