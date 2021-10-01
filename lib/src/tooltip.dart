@@ -16,6 +16,7 @@ part 'balloon_positioner.dart';
 class SimpleTooltip extends StatefulWidget {
   /// The [child] which the tooltip will target to
   final Widget child;
+  final bool customLeftAlign;
 
   /// Sets the tooltip direction
   /// defaults to [TooltipDirection.up]
@@ -109,6 +110,7 @@ class SimpleTooltip extends StatefulWidget {
     required this.content,
     required this.show,
     this.targetCenter,
+    this.customLeftAlign= false,
     // this.onClose,
     this.ballonPadding = const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
     this.maxWidth,
@@ -324,6 +326,7 @@ class SimpleTooltipState extends State<SimpleTooltip> with RouteAware {
             },
             child: _Ballon(
               content: widget.content,
+              customLeftAlign:widget.customLeftAlign,
               borderRadius: widget.borderRadius,
               arrowBaseWidth: widget.arrowBaseWidth,
               arrowLength: widget.arrowLength,
