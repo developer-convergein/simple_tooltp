@@ -8,6 +8,8 @@ class _Ballon extends StatefulWidget {
   final double arrowTipDistance;
   final Color borderColor;
   final double borderWidth;
+    final bool customLeftAlign;
+
   // final double left;
   // final double top;
   // final double right;
@@ -40,6 +42,7 @@ class _Ballon extends StatefulWidget {
     required this.shadows,
     this.onTap,
     required this.onSizeChange,
+    this.customLeftAlign= false,
   }) : super(key: key);
 
   @override
@@ -92,6 +95,7 @@ class __BallonState extends State<_Ballon> {
             // right,
             // bottom,
             widget.arrowLength,
+            widget.customLeftAlign,
           ),
         ),
         padding: widget.ballonPadding,
@@ -110,6 +114,8 @@ class _BalloonShape extends ShapeBorder {
   final double borderWidth;
   final TooltipDirection tooltipDirection;
   final double arrowLength;
+    final bool customLeftAlign;
+
   // final double left, top, right, bottom;
 
   _BalloonShape(
@@ -121,6 +127,7 @@ class _BalloonShape extends ShapeBorder {
     this.borderColor,
     this.borderWidth,
     this.arrowLength,
+    this.customLeftAlign,
     // this.left,
     // this.top,
     // this.right,
@@ -170,7 +177,14 @@ class _BalloonShape extends ShapeBorder {
 
 //     Offset targetCenter = this.targetCenter ?? rect.center;
      // this is for my custom changes & use
-    Offset targetCenter = rect.bottomLeft.translate(60,rect.bottomLeft.dy);
+    
+    if(customLeftAlign){
+          Offset targetCenter = rect.bottomLeft.translate(60,rect.bottomLeft.dy);
+
+    }else{
+           Offset targetCenter = this.targetCenter ?? rect.center;
+
+    }
     if (tooltipDirection == TooltipDirection.right) {
       targetCenter = rect.centerLeft.translate(-arrowLength, 0);
     } else if (tooltipDirection == TooltipDirection.left) {
