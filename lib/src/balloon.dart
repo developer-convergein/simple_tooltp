@@ -300,6 +300,7 @@ class _BalloonShape extends ShapeBorder {
       borderColor,
       borderWidth,
       arrowLength,
+      customLeftAlign,
       // left,
       // top,
       // right,
